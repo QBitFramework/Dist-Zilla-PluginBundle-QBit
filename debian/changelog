@@ -1,3 +1,9 @@
+libdist-zilla-pluginbundle-qbit-perl (0.1-2) raring; urgency=low
+
+  * Fixed debiam/rules
+
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Sat, 03 Aug 2013 10:17:12 +0400
+
 libdist-zilla-pluginbundle-qbit-perl (0.1-1) raring; urgency=low
 
   * Initial Release.
