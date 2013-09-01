@@ -9,7 +9,7 @@ sub configure {
     my ($self) = @_;
 
     $self->add_plugins(
-        ['GatherDir' => {include_dotfiles => 1, exclude_filename => 'debian/changelog'}],
+        ['GatherDir' => {include_dotfiles => 1, exclude_match => '^\.git/'}],
         'PruneCruft',
         'AutoPrereqs',
 
@@ -17,13 +17,13 @@ sub configure {
         ['Git::Check' => {allow_dirty => []}],
         [
             'Git::NextVersion' => {
-                first_version     => 0.1,
+                first_version     => 0.001,
                 version_by_branch => 0,
                 version_regexp    => '^(.+)$'
             }
         ],
         ['ChangelogFromGit' => {file_name => 'Changes'}],
-        'ChangelogFromGit::Debian::Sequential',
+        ['ChangelogFromGit::Debian::Sequential' => {tag_regexp => '^(.+)$'}],
 
         'License',
         'Readme',
@@ -31,7 +31,7 @@ sub configure {
         'ExecDir',
         'ShareDir',
         'Manifest',
-        'MakeMaker',
+        ($self->payload->{'use_module_build'} ? 'ModuleBuild' : 'MakeMaker'),
 
         'PkgVersion',
 

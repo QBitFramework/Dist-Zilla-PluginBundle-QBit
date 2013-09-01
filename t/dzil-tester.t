@@ -21,7 +21,7 @@ sub init_zilla {
                         name             => 'DZT-Sample',
                         abstract         => 'Sample DZ Dist',
                         author           => 'Name Lastname <example@example.org>',
-                        license          => 'GPL_3',
+                        license          => 'GPL_2',
                         copyright_holder => 'Name Lastname',
                     },
                     ['@QBit' => {from_test => 1, ppa => 'test'}],
@@ -50,7 +50,7 @@ $zilla->release;
 
 ok(scalar(grep {/LaunchpadPPA.+?Simulated upload/} @{$zilla->log_messages}), 'Checking uploaded status');
 
-is(`git tag`, "0.1\n", 'Checking tag');
+is(`git tag`, "0.001\n", 'Checking tag');
 
 undef($pushd);
 

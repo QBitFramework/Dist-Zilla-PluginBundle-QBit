@@ -1,3 +1,13 @@
+libdist-zilla-pluginbundle-qbit-perl (0.2-1) raring; urgency=low
+
+  * Fixed ChangelogFromGit::Debian::Sequential. 
+  
+  * Added ignoring .git directory. 
+
+  * Added use_module_build parameter.
+
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Sun, 01 Sep 2013 22:54:26 +0400
+
 libdist-zilla-pluginbundle-qbit-perl (0.1-2) raring; urgency=low
 
   * Fixed debiam/rules
