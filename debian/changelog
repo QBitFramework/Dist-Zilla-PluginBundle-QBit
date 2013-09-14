@@ -1,3 +1,9 @@
+libdist-zilla-pluginbundle-qbit-perl (0.3) raring; urgency=low
+
+  * Removed PruneCruft
+
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Sat, 14 Sep 2013 11:03:50 +0400
+
 libdist-zilla-pluginbundle-qbit-perl (0.2-1) raring; urgency=low
 
   * Fixed ChangelogFromGit::Debian::Sequential. 
