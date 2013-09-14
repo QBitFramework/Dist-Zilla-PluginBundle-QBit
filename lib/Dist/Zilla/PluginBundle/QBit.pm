@@ -10,7 +10,6 @@ sub configure {
 
     $self->add_plugins(
         ['GatherDir' => {include_dotfiles => 1, exclude_match => '^\.git/'}],
-        'PruneCruft',
         'AutoPrereqs',
 
         'Git::Init',
