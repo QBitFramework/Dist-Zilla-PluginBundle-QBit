@@ -47,8 +47,14 @@ sub configure {
             }
         ],
 
-        ['Git::Commit' => {commit_msg => 'Version %v', add_files_in => ['debian/changelog']}],
-        ['Git::Tag'    => {tag_format => '%v'}],
+        [
+            'Git::Commit' => {
+                changelog   => 'debian/changelog',
+                commit_msg  => 'Version %v',
+                allow_dirty => ['debian/changelog']
+            }
+        ],
+        ['Git::Tag' => {tag_format => '%v'}],
 
         ($self->payload->{'from_test'} ? () : 'Git::Push')
     );
