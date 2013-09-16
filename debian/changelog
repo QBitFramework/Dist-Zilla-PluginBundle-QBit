@@ -1,3 +1,9 @@
+libdist-zilla-pluginbundle-qbit-perl (0.5) raring; urgency=low
+
+  * Fixed commiting debian/changelog
+
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Mon, 16 Sep 2013 15:53:41 +0400
+
 libdist-zilla-pluginbundle-qbit-perl (0.4) raring; urgency=low
 
   * Fixed tag_regexp
