@@ -1,3 +1,9 @@
+libdist-zilla-pluginbundle-qbit-perl (0.6) raring; urgency=low
+
+  * Fixed first commit debian/changelog
+
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Mon, 16 Sep 2013 17:44:26 +0400
+
 libdist-zilla-pluginbundle-qbit-perl (0.5) raring; urgency=low
 
   * Fixed commiting debian/changelog
