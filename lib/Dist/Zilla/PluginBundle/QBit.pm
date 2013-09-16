@@ -5,6 +5,8 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 use namespace::autoclean;
 
+my $TAG_REGEXP = '^(.+)$';
+
 sub configure {
     my ($self) = @_;
 
@@ -18,11 +20,11 @@ sub configure {
             'Git::NextVersion' => {
                 first_version     => 0.001,
                 version_by_branch => 0,
-                version_regexp    => '^(.+)$'
+                version_regexp    => $TAG_REGEXP
             }
         ],
-        ['ChangelogFromGit' => {file_name => 'Changes'}],
-        ['ChangelogFromGit::Debian::Sequential' => {tag_regexp => '^(.+)$'}],
+        ['ChangelogFromGit'                     => {file_name  => 'Changes', tag_regexp => $TAG_REGEXP}],
+        ['ChangelogFromGit::Debian::Sequential' => {tag_regexp => $TAG_REGEXP}],
 
         'License',
         'Readme',
