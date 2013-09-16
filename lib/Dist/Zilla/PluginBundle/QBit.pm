@@ -49,9 +49,10 @@ sub configure {
 
         [
             'Git::Commit' => {
-                changelog   => 'debian/changelog',
-                commit_msg  => 'Version %v',
-                allow_dirty => ['debian/changelog']
+                changelog    => 'debian/changelog',
+                commit_msg   => 'Version %v',
+                allow_dirty  => ['debian/changelog'],
+                add_files_in => ['debian/changelog']
             }
         ],
         ['Git::Tag' => {tag_format => '%v'}],
