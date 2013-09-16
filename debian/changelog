@@ -1,3 +1,9 @@
+libdist-zilla-pluginbundle-qbit-perl (0.4) raring; urgency=low
+
+  * Fixed tag_regexp
+
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Mon, 16 Sep 2013 14:58:50 +0400
+
 libdist-zilla-pluginbundle-qbit-perl (0.3) raring; urgency=low
 
   * Removed PruneCruft
