@@ -9,7 +9,7 @@ Build-Depends: debhelper (>= 8),
  libdist-zilla-plugin-git-perl,
  libdist-zilla-plugin-changelogfromgit-perl,
  libdist-zilla-plugin-changelogfromgit-debian-sequential-perl,
- libdist-zilla-plugin-launchpadppa-perl,
+ libdist-zilla-plugin-perlhubupload-perl,
  libnamespace-autoclean-perl,
  libmoose-perl
 Build-Depends-Indep: perl
@@ -24,7 +24,7 @@ Depends: ${misc:Depends}, ${perl:Depends},
  libdist-zilla-plugin-git-perl,
  libdist-zilla-plugin-changelogfromgit-perl,
  libdist-zilla-plugin-changelogfromgit-debian-sequential-perl,
- libdist-zilla-plugin-launchpadppa-perl,
+ libdist-zilla-plugin-perlhubupload-perl,
  libnamespace-autoclean-perl,
  libmoose-perl
 Description: Dist::Zilla bundle for build and release QBit Framework packages
