@@ -39,8 +39,7 @@ sub configure {
         'TestRelease',
         ($self->payload->{'from_test'} ? () : 'ConfirmRelease'),
         [
-            'LaunchpadPPA' => {
-                ppa => 'qbit-perl/raring',
+            'PerlHubUpload' => {
                 $self->payload->{'from_test'}
                 ? (debuild_args => '-S -sa -us -uc', dput_args => '--simulate --unchecked')
                 : ()
