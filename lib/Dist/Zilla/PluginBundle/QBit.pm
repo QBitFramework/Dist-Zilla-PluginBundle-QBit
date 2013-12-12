@@ -32,7 +32,11 @@ sub configure {
         'ExecDir',
         'ShareDir',
         'Manifest',
-        ($self->payload->{'use_module_build'} ? 'ModuleBuild' : 'MakeMaker'),
+        (
+            $self->payload->{'no_makefile_pl'}
+            ? ()
+            : ($self->payload->{'use_module_build'} ? 'ModuleBuild' : 'MakeMaker')
+        ),
 
         'PkgVersion',
 
