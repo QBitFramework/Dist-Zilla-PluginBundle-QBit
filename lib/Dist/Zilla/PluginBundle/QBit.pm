@@ -39,9 +39,11 @@ sub configure {
         ),
 
         'PkgVersion',
+        ($self->payload->{'copy_meta'} ? 'CopyMeta' : ()),
 
         'TestRelease',
         ($self->payload->{'from_test'} ? () : 'ConfirmRelease'),
+        (!$self->payload->{'from_test'} && $self->payload->{'upload_to_cpan'} ? 'UploadToCPAN' : ()),
         [
             'PerlHubUpload' => {
                 $self->payload->{'from_test'}
@@ -52,10 +54,16 @@ sub configure {
 
         [
             'Git::Commit' => {
-                changelog    => 'debian/changelog',
-                commit_msg   => 'Version %v',
-                allow_dirty  => ['debian/changelog'],
-                add_files_in => ['debian/changelog']
+                changelog   => 'debian/changelog',
+                commit_msg  => 'Version %v',
+                allow_dirty => [
+                    'debian/changelog',
+                    ($self->payload->{'copy_meta'} ? qw(Changes LICENSE README META.yml Makefile.PL MANIFEST) : ())
+                ],
+                add_files_in => [
+                    'debian/changelog',
+                    ($self->payload->{'copy_meta'} ? qw(Changes LICENSE README META.yml Makefile.PL MANIFEST) : ())
+                ]
             }
         ],
         ['Git::Tag' => {tag_format => '%v'}],
