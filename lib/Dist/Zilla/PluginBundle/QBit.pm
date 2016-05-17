@@ -7,17 +7,18 @@ use namespace::autoclean;
 
 my $TAG_REGEXP = '^(.+)$';
 
-my @META_FILES = qw(Changes LICENSE README META.yml Makefile.PL MANIFEST);
-
 sub configure {
     my ($self) = @_;
+
+    my @meta_files = qw(Changes LICENSE README META.yml MANIFEST);
+    push(@meta_files, 'Makefile.PL') unless $self->payload->{'no_makefile_pl'};
 
     $self->add_plugins(
         [
             'GatherDir' => {
                 include_dotfiles => 1,
                 exclude_match    => '^\.git/',
-                exclude_filename => \@META_FILES
+                exclude_filename => \@meta_files,
             }
         ],
         'AutoPrereqs',
@@ -47,7 +48,7 @@ sub configure {
         ),
 
         'PkgVersion',
-        ($self->payload->{'copy_meta'} ? 'CopyMeta' : ()),
+        ($self->payload->{'copy_meta'} ? ['CopyMeta' => {files => \@meta_files}] : ()),
 
         'TestRelease',
         ($self->payload->{'from_test'} ? () : 'ConfirmRelease'),
@@ -64,8 +65,8 @@ sub configure {
             'Git::Commit' => {
                 changelog    => 'debian/changelog',
                 commit_msg   => 'Version %v',
-                allow_dirty  => ['debian/changelog', ($self->payload->{'copy_meta'} ? @META_FILES : ())],
-                add_files_in => ['debian/changelog', ($self->payload->{'copy_meta'} ? @META_FILES : ())]
+                allow_dirty  => ['debian/changelog', ($self->payload->{'copy_meta'} ? @meta_files : ())],
+                add_files_in => ['debian/changelog', ($self->payload->{'copy_meta'} ? @meta_files : ())]
             }
         ],
         ['Git::Tag' => {tag_format => '%v'}],
