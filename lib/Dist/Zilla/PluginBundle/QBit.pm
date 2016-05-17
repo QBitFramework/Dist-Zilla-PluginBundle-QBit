@@ -43,7 +43,7 @@ sub configure {
         'Manifest',
         (
             $self->payload->{'no_makefile_pl'}
-            ? ()
+            ? ('MakeMaker::Runner')
             : ($self->payload->{'use_module_build'} ? 'ModuleBuild' : 'MakeMaker')
         ),
 
