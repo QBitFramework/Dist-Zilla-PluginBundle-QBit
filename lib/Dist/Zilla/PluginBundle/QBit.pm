@@ -53,13 +53,6 @@ sub configure {
         'TestRelease',
         ($self->payload->{'from_test'} ? () : 'ConfirmRelease'),
         (!$self->payload->{'from_test'} && $self->payload->{'upload_to_cpan'} ? 'UploadToCPAN' : ()),
-        [
-            'PerlHubUpload' => {
-                $self->payload->{'from_test'}
-                ? (debuild_args => '-S -sa -us -uc', dput_args => '--simulate --unchecked')
-                : ()
-            }
-        ],
 
         [
             'Git::Commit' => {
