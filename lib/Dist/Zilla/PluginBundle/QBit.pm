@@ -51,8 +51,8 @@ sub configure {
         ($self->payload->{'copy_meta'} ? ['CopyMeta' => {files => \@meta_files}] : ()),
 
         'TestRelease',
-        ($self->payload->{'from_test'} ? () : 'ConfirmRelease'),
-        (!$self->payload->{'from_test'} && $self->payload->{'upload_to_cpan'} ? 'UploadToCPAN' : ()),
+        ($self->payload->{'from_test'} ? ()            : 'ConfirmRelease'),
+        ($self->payload->{'from_test'} ? 'FakeRelease' : 'UploadToCPAN'),
 
         [
             'Git::Commit' => {

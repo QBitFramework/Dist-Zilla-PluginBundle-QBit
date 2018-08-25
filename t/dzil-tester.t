@@ -48,7 +48,7 @@ init_zilla();
 
 $zilla->release;
 
-ok(scalar(grep {/PerlHubUpload.+?Simulated upload/} @{$zilla->log_messages}), 'Checking uploaded status');
+ok(scalar(grep {/Fake release happening/} @{$zilla->log_messages}), 'Checking uploaded status');
 
 is(`git tag`, "0.001\n", 'Checking tag');
 
